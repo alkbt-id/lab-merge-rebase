@@ -18,3 +18,10 @@ def load(path: str) -> list[Expense]:
             Expense(row["day"], row["category"], Decimal(row["amount"]))
             for row in csv.DictReader(f)
         ]
+
+
+def totals(expenses: list[Expense]) -> dict[str, Decimal]:
+    result: dict[str, Decimal] = {}
+    for expense in expenses:
+        result[expense.category] = result.get(expense.category, Decimal(0)) + expense.amount
+    return result
