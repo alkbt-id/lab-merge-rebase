@@ -15,7 +15,7 @@ class Expense:
 def load(path: str) -> list[Expense]:
     with open(path, newline="") as f:
         return [
-            Expense(row["day"], row["category"], Decimal(row["amount"]))
+            Expense(row["day"], row["category"].strip(), Decimal(row["amount"]))
             for row in csv.DictReader(f)
         ]
 
