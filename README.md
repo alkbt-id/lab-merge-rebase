@@ -9,4 +9,4 @@ Personal expense summary: reads expenses from a CSV file and prints totals by ca
 ## CSV format
 
 One expense per line: `day,category,amount`, for example `2026-10-01,food,12.50`.
-The frist line is the header.
+The first line is the header.
