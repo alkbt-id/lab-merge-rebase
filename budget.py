@@ -4,6 +4,8 @@ import csv
 from dataclasses import dataclass
 from decimal import Decimal
 
+CENT = Decimal("0.01")
+
 
 @dataclass(frozen=True)
 class Expense:
@@ -24,4 +26,4 @@ def totals(expenses: list[Expense]) -> dict[str, Decimal]:
     result: dict[str, Decimal] = {}
     for expense in expenses:
         result[expense.category] = result.get(expense.category, Decimal(0)) + expense.amount
-    return result
+    return {category: amount.quantize(CENT) for category, amount in result.items()}
