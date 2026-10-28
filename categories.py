@@ -4,4 +4,5 @@ ALIASES = {"groceries": "food", "taxi": "transport", "metro": "transport"}
 
 
 def canonical(category: str) -> str:
-    return ALIASES.get(category, category)
+    name = category.strip().lower()
+    return ALIASES.get(name, name)
