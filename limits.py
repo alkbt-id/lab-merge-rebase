@@ -9,3 +9,7 @@ def over_limit(totals: dict[str, Decimal], limits: dict[str, Decimal]) -> dict[s
         for category, amount in totals.items()
         if category in limits and amount > limits[category]
     }
+
+
+def format_warnings(over: dict[str, Decimal]) -> str:
+    return "\n".join(f"{category}: over by {amount}" for category, amount in sorted(over.items()))
