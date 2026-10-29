@@ -4,4 +4,4 @@ from categories import ALIASES
 
 
 def format_aliases() -> str:
-    return "\n".join(f"{alias} -> {category}" for alias, category in ALIASES.items())
+    return "\n".join(f"{alias} -> {category}" for alias, category in sorted(ALIASES.items()))
